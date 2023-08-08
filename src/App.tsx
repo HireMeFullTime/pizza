@@ -8,6 +8,10 @@ import Layout from './components/layout/Layout';
 const Home = lazy(() => import('./pages/HomePage'));
 const Ingredients = lazy(() => import('./pages/IngredientsPage'));
 const Actions = lazy(() => import('./pages/ActionsPage'));
+
+const PizzaDetails = lazy(() => import('./pages/PizzaDetailsPage'));
+const IngredientDetails = lazy(() => import('./pages/IngredientDetailsPage'));
+const ActionDetails = lazy(() => import('./pages/ActionDetailsPage'));
 function App() {
   return (
     <div className="App">
@@ -15,8 +19,14 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/pizza/:pizzaId" element={<PizzaDetails />} />
             <Route path="/ingredients" element={<Ingredients />} />
-            <Route path="/Actions" element={<Actions />} />
+            <Route
+              path="/ingredients/:ingredientId"
+              element={<IngredientDetails />}
+            />
+            <Route path="/actions" element={<Actions />} />
+            <Route path="/actions/:actionId" element={<ActionDetails />} />
           </Route>
         </Routes>
       </Suspense>
