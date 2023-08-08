@@ -2,11 +2,11 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-interface pizzaName {
+interface PizzaName {
   name: string;
 }
 const HomePage = () => {
-  const [pizzaData, setPizzaData] = useState<pizzaName[] | null>(null);
+  const [pizzaData, setPizzaData] = useState<PizzaName[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
