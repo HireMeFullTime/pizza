@@ -21,7 +21,7 @@ const PizzaDetailsPage = () => {
           `${process.env.REACT_APP_BACKEND_URL}/pizza/get/${pizzaName}`,
         );
         const data = response.data;
-        console.log(data);
+
         if (data) {
           setLoading(false);
           setPizzaDetails(data);
@@ -38,7 +38,6 @@ const PizzaDetailsPage = () => {
       }
     };
     fetchPizzaDetails();
-    console.log(pizzaDetails);
   }, []);
   return (
     <div>

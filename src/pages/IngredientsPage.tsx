@@ -2,11 +2,11 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-interface ingredientName {
+interface IngredientName {
   name: string;
 }
 const IngredientsPage = () => {
-  const [ingredientData, setIngredientData] = useState<ingredientName[] | null>(
+  const [ingredientData, setIngredientData] = useState<IngredientName[] | null>(
     null,
   );
   const [error, setError] = useState<string | null>(null);
@@ -19,7 +19,6 @@ const IngredientsPage = () => {
           `${process.env.REACT_APP_BACKEND_URL}/ingredient/get/all`,
         );
         const data = response.data.ingredients;
-        console.log(data);
 
         if (data) {
           setLoading(false);
