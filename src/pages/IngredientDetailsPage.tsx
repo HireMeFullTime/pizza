@@ -22,7 +22,7 @@ const IngredientDetailsPage = () => {
           `${process.env.REACT_APP_BACKEND_URL}/ingredient/get/${ingredientName}`,
         );
         const data = response.data;
-        console.log(data);
+
         if (data) {
           setLoading(false);
           setIngredientDetails(data);
@@ -39,8 +39,8 @@ const IngredientDetailsPage = () => {
       }
     };
     fetchingredientDetails();
-    console.log(ingredientDetails);
   }, []);
+
   return (
     <div>
       <h2>{ingredientDetails?.name}</h2>
