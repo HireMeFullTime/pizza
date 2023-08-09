@@ -46,7 +46,7 @@ const IngredientsPage = () => {
           !error &&
           !loading &&
           ingredientData.map((ingredient) => (
-            <Link to={`/ingredient/${ingredient.name}`} key={ingredient.name}>
+            <Link to={`/ingredients/${ingredient.name}`} key={ingredient.name}>
               {ingredient.name}
             </Link>
           ))}
