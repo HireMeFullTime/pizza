@@ -41,24 +41,34 @@ const PizzaDetailsPage = () => {
   }, []);
   return (
     <div>
-      <h2>{pizzaDetails?.name}</h2>
-      <p>Ingredients:</p>
-      <ul>
-        {pizzaDetails &&
-          pizzaDetails.ingredients.map((pizza) => (
-            <li key={pizza.name}>{pizza.name}</li>
-          ))}
-      </ul>
-
-      <p>Actions:</p>
-      <ul>
-        {pizzaDetails &&
-          pizzaDetails.actions.map((pizza) => (
-            <li key={pizza.name}>{pizza.name}</li>
-          ))}
-      </ul>
       {error ? <p>{error}</p> : null}
       {loading ? <p>Loading...</p> : null}
+
+      {pizzaDetails && !loading && (
+        <>
+          <h2>{pizzaDetails?.name}</h2>
+          <p>Ingredients:</p>
+          <ul>
+            {pizzaDetails.ingredients.length > 0 ? (
+              pizzaDetails.ingredients.map((pizza) => (
+                <li key={pizza.name}>{pizza.name}</li>
+              ))
+            ) : (
+              <li>not found</li>
+            )}
+          </ul>
+          <p>Actions:</p>
+          <ul>
+            {pizzaDetails.actions.length > 0 ? (
+              pizzaDetails.actions.map((pizza) => (
+                <li key={pizza.name}>{pizza.name}</li>
+              ))
+            ) : (
+              <li>not found</li>
+            )}
+          </ul>
+        </>
+      )}
     </div>
   );
 };

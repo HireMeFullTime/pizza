@@ -43,32 +43,33 @@ const IngredientDetailsPage = () => {
 
   return (
     <div>
-      <h2>{ingredientDetails?.name}</h2>
-      <p>Pizzas:</p>
-      <ul>
-        {ingredientDetails && ingredientDetails.pizzas.length > 0 ? (
-          ingredientDetails.pizzas.map((ingredient) => (
-            <li key={ingredient.name}>{ingredient.name}</li>
-          ))
-        ) : (
-          <li>not found</li>
-        )}
-      </ul>
-
-      <p>Action:</p>
-
-      <ul>
-        {ingredientDetails &&
-        ingredientDetails.action &&
-        ingredientDetails.action.name !== null ? (
-          <li>{ingredientDetails?.action.name}</li>
-        ) : (
-          <li>not found</li>
-        )}
-      </ul>
-
       {error ? <p>{error}</p> : null}
       {loading ? <p>Loading...</p> : null}
+
+      {ingredientDetails && !loading && (
+        <>
+          <h2>{ingredientDetails?.name}</h2>
+          <p>Pizzas:</p>
+          <ul>
+            {ingredientDetails.pizzas.length > 0 ? (
+              ingredientDetails.pizzas.map((ingredient) => (
+                <li key={ingredient.name}>{ingredient.name}</li>
+              ))
+            ) : (
+              <li>not found</li>
+            )}
+          </ul>
+          <p>Action:</p>
+          <ul>
+            {ingredientDetails.action &&
+            ingredientDetails.action.name !== null ? (
+              <li>{ingredientDetails?.action.name}</li>
+            ) : (
+              <li>not found</li>
+            )}
+          </ul>
+        </>
+      )}
     </div>
   );
 };
