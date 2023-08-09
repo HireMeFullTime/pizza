@@ -26,7 +26,7 @@ function App() {
               element={<IngredientDetails />}
             />
             <Route path="/actions" element={<Actions />} />
-            <Route path="/actions/:actionId" element={<ActionDetails />} />
+            <Route path="/actions/:actionName" element={<ActionDetails />} />
           </Route>
         </Routes>
       </Suspense>
