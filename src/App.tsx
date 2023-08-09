@@ -22,7 +22,7 @@ function App() {
             <Route path="/pizza/:pizzaName" element={<PizzaDetails />} />
             <Route path="/ingredients" element={<Ingredients />} />
             <Route
-              path="/ingredients/:ingredientId"
+              path="/ingredients/:ingredientName"
               element={<IngredientDetails />}
             />
             <Route path="/actions" element={<Actions />} />
