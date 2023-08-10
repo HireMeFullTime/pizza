@@ -1,6 +1,8 @@
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
+import Card from '../components/Card';
+import MainContentWrapper from '../components/layout/MainContentWrapper';
 
 interface PizzaName {
   name: string;
@@ -38,16 +40,15 @@ const HomePage = () => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <MainContentWrapper>
         {pizzaData &&
           !error &&
           !loading &&
           pizzaData.map((pizza) => (
-            <Link to={`/pizza/${pizza.name}`} key={pizza.name}>
-              {pizza.name}
-            </Link>
+            <Card href={`/${pizza.name}`} key={pizza.name} name={pizza.name} />
           ))}
-      </div>
+      </MainContentWrapper>
+
       {error ? <p>{error}</p> : null}
       {loading ? <p>Loading...</p> : null}
     </>

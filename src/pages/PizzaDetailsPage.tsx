@@ -2,6 +2,10 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import DetailsCard from '../components/DetailsCard';
+import MainContentWrapper from '../components/layout/MainContentWrapper';
+import classes from './DetailsPage.module.css';
+
 interface PizzaDetails {
   name: string;
   ingredients: { name: string }[];
@@ -45,29 +49,31 @@ const PizzaDetailsPage = () => {
       {loading ? <p>Loading...</p> : null}
 
       {pizzaDetails && !loading && (
-        <>
-          <h2>{pizzaDetails?.name}</h2>
-          <p>Ingredients:</p>
-          <ul>
-            {pizzaDetails.ingredients.length > 0 ? (
-              pizzaDetails.ingredients.map((pizza) => (
-                <li key={pizza.name}>{pizza.name}</li>
-              ))
-            ) : (
-              <li>not found</li>
-            )}
-          </ul>
-          <p>Actions:</p>
-          <ul>
-            {pizzaDetails.actions.length > 0 ? (
-              pizzaDetails.actions.map((pizza) => (
-                <li key={pizza.name}>{pizza.name}</li>
-              ))
-            ) : (
-              <li>not found</li>
-            )}
-          </ul>
-        </>
+        <MainContentWrapper>
+          <DetailsCard>
+            <h1 className={classes.title}>{pizzaDetails?.name}</h1>
+            <h2 className={classes['content-title']}>Ingredients:</h2>
+            <ul className={classes['content-list']}>
+              {pizzaDetails.ingredients.length > 0 ? (
+                pizzaDetails.ingredients.map((pizza) => (
+                  <li key={pizza.name}>➕{pizza.name}</li>
+                ))
+              ) : (
+                <li>not found</li>
+              )}
+            </ul>
+            <h2 className={classes['content-title']}>Actions:</h2>
+            <ul className={classes['content-list']}>
+              {pizzaDetails.actions.length > 0 ? (
+                pizzaDetails.actions.map((pizza) => (
+                  <li key={pizza.name}>👨🏿‍🍳{pizza.name}</li>
+                ))
+              ) : (
+                <li>not found</li>
+              )}
+            </ul>
+          </DetailsCard>
+        </MainContentWrapper>
       )}
     </div>
   );

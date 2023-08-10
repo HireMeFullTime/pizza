@@ -2,6 +2,10 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import DetailsCard from '../components/DetailsCard';
+import MainContentWrapper from '../components/layout/MainContentWrapper';
+import classes from './DetailsPage.module.css';
+
 interface ActionDetails {
   name: string;
   pizzas: { name: string }[];
@@ -24,7 +28,7 @@ const ActionDetailsPage = () => {
           `${process.env.REACT_APP_BACKEND_URL}/action/get/${actionName}`,
         );
         const data = response.data;
-        console.log(data);
+
         if (data) {
           setLoading(false);
           setActionDetails(data);
@@ -49,31 +53,33 @@ const ActionDetailsPage = () => {
       {loading ? <p>loading...</p> : null}
 
       {!loading && actionDetails && (
-        <>
-          <h2>{actionDetails?.name}</h2>
-          <p>Pizzas:</p>
-          <ul>
-            {actionDetails.pizzas.length > 0 ? (
-              actionDetails.pizzas.map((action) => (
-                <li key={action.name}>{action.name}</li>
-              ))
-            ) : (
-              <li>not found</li>
-            )}
-          </ul>
+        <MainContentWrapper>
+          <DetailsCard>
+            <h1 className={classes.title}>{actionDetails?.name}</h1>
 
-          <p>Ingredients:</p>
+            <h2 className={classes['content-title']}>Pizzas:</h2>
+            <ul className={classes['content-list']}>
+              {actionDetails.pizzas.length > 0 ? (
+                actionDetails.pizzas.map((action) => (
+                  <li key={action.name}>🍕{action.name}</li>
+                ))
+              ) : (
+                <li>not found</li>
+              )}
+            </ul>
 
-          <ul>
-            {actionDetails.ingredients.length > 0 ? (
-              actionDetails.ingredients.map((ingredient) => (
-                <li key={ingredient.name}>{ingredient.name}</li>
-              ))
-            ) : (
-              <li>not found</li>
-            )}
-          </ul>
-        </>
+            <h2 className={classes['content-title']}>Ingredients:</h2>
+            <ul className={classes['content-list']}>
+              {actionDetails.ingredients.length > 0 ? (
+                actionDetails.ingredients.map((ingredient) => (
+                  <li key={ingredient.name}>➕{ingredient.name}</li>
+                ))
+              ) : (
+                <li>not found</li>
+              )}
+            </ul>
+          </DetailsCard>
+        </MainContentWrapper>
       )}
     </div>
   );

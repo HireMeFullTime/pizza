@@ -1,0 +1,30 @@
+.navbar {
+  align-items: center;
+  background: #000000b3;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  font-size: 2.5rem;
+  gap: 1.25rem;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0.63rem 0;
+}
+
+.link {
+  color: white;
+}
+
+.link.active {
+  color: #9acd32;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    font-size: 1.25rem;
+  }
+}
