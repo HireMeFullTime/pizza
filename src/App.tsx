@@ -3,7 +3,9 @@ import './App.css';
 import { Route, Routes } from 'react-router';
 import { Suspense, lazy } from 'react';
 
+import Error from './components/Error';
 import Layout from './components/layout/Layout';
+import Spinner from './components/Spinner';
 
 const Home = lazy(() => import('./pages/HomePage'));
 const Ingredients = lazy(() => import('./pages/IngredientsPage'));
@@ -15,7 +17,7 @@ const ActionDetails = lazy(() => import('./pages/ActionDetailsPage'));
 function App() {
   return (
     <div className="App">
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Spinner />}>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
@@ -27,6 +29,7 @@ function App() {
             />
             <Route path="/actions" element={<Actions />} />
             <Route path="/actions/:actionName" element={<ActionDetails />} />
+            <Route path="*" element={<Error content="Page not found" />} />
           </Route>
         </Routes>
       </Suspense>
