@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 import Card from '../components/Card';
+import Error from '../components/Error';
 import MainContentWrapper from '../components/layout/MainContentWrapper';
 import Spinner from '../components/Spinner';
 
@@ -55,7 +56,7 @@ const IngredientsPage = () => {
             />
           ))}
       </MainContentWrapper>
-      {error ? <p>{error}</p> : null}
+      {error ? <Error content={error} /> : null}
       {loading ? <Spinner /> : null}
     </>
   );

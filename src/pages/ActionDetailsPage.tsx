@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import DetailsCard from '../components/DetailsCard';
+import Error from '../components/Error';
 import MainContentWrapper from '../components/layout/MainContentWrapper';
 import Spinner from '../components/Spinner';
 import classes from './DetailsPage.module.css';
@@ -50,7 +51,7 @@ const ActionDetailsPage = () => {
 
   return (
     <div>
-      {error ? <p>{error}</p> : null}
+      {error ? <Error content={error} /> : null}
       {loading ? <Spinner /> : null}
 
       {!loading && actionDetails && (

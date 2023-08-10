@@ -1,0 +1,17 @@
+.error {
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  color: #000;
+  display: flex;
+  font-size: 1.5rem;
+  height: fit-content;
+  left: 50%;
+  max-width: 18.75rem;
+  min-height: 18.75rem;
+  padding: 1.25rem;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
