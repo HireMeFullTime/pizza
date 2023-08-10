@@ -1,0 +1,19 @@
+.layout {
+  align-items: center;
+  background: #000000e6;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 1440px;
+  outline: 1px solid blue;
+  overflow-y: auto;
+  width: 100vw;
+}
+
+.main {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+  /* outline: 1px solid blue; */
+}

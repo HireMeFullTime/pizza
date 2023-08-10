@@ -1,6 +1,8 @@
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
+import Card from '../components/Card';
+import MainContentWrapper from '../components/layout/MainContentWrapper';
 
 interface ActionName {
   name: string;
@@ -39,16 +41,18 @@ const ActionsPage = () => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <MainContentWrapper>
         {actionData &&
           !error &&
           !loading &&
           actionData.map((action) => (
-            <Link to={`/actions/${action.name}`} key={action.name}>
-              {action.name}
-            </Link>
+            <Card
+              href={`/actions/${action.name}`}
+              key={action.name}
+              name={action.name}
+            />
           ))}
-      </div>
+      </MainContentWrapper>
       {error ? <p>{error}</p> : null}
       {loading ? <p>Loading...</p> : null}
     </>

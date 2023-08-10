@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/pizza/:pizzaName" element={<PizzaDetails />} />
+            <Route path="/:pizzaName" element={<PizzaDetails />} />
             <Route path="/ingredients" element={<Ingredients />} />
             <Route
               path="/ingredients/:ingredientName"

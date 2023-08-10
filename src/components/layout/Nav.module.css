@@ -1,0 +1,28 @@
+.navbar {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  /* border-bottom: 1px solid black; */
+}
+
+.navigation {
+  display: flex;
+  font-size: 40px;
+  gap: 20px;
+  justify-content: center;
+  list-style-type: none;
+  padding: 10px 0;
+}
+
+.link {
+  color: white;
+}
+
+.link.active {
+  color: yellowgreen;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    font-size: 20px;
+  }
+}
