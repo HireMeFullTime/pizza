@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import Card from '../components/Card';
 import MainContentWrapper from '../components/layout/MainContentWrapper';
+import Spinner from '../components/Spinner';
 
 interface PizzaName {
   name: string;
@@ -50,7 +51,7 @@ const HomePage = () => {
       </MainContentWrapper>
 
       {error ? <p>{error}</p> : null}
-      {loading ? <p>Loading...</p> : null}
+      {loading ? <Spinner /> : null}
     </>
   );
 };

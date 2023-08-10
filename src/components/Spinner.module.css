@@ -1,0 +1,148 @@
+/* Author of spinner is Tapajyoti Bose. I only position it (and use different image). Here is link to original resource: https://dev.to/ruppysuppy/create-dynamic-spinners-only-using-css-34dh */
+.spinner {
+  animation: spin 4s linear infinite;
+  display: flex;
+  flex-wrap: wrap;
+  height: 160px;
+  left: 50%;
+  margin: -80px 0 0 -80px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+}
+
+.pizza-part {
+  height: 80px;
+  width: 80px;
+}
+
+.pizza-part-1 {
+  animation: pizza1 2s ease-in-out infinite;
+}
+
+.pizza-part-2 {
+  animation: pizza2 2s ease-in-out infinite;
+}
+
+.pizza-part-3 {
+  animation: pizza4 2s ease-in-out infinite;
+}
+
+.pizza-part-4 {
+  animation: pizza3 2s ease-in-out infinite;
+}
+
+/* animations */
+@keyframes spin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes pizza1 {
+  0% {
+    opacity: 0;
+    transform: translate(-20%, -20%);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
+  60% {
+    opacity: 0;
+    transform: translate(-20%, -20%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-20%, -20%);
+  }
+}
+
+@keyframes pizza2 {
+  0% {
+    opacity: 0;
+    transform: translate(20%, -20%) rotateZ(90deg);
+  }
+  10% {
+    opacity: 0;
+    transform: translate(20%, -20%) rotateZ(90deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(0%, 0%) rotateZ(90deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(0%, 0%) rotateZ(90deg);
+  }
+  70% {
+    opacity: 0;
+    transform: translate(20%, -20%) rotateZ(90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(20%, -20%) rotateZ(90deg);
+  }
+}
+
+@keyframes pizza3 {
+  0% {
+    opacity: 0;
+    transform: translate(20%, 20%) rotateZ(180deg);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(20%, 20%) rotateZ(180deg);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(0%, 0%) rotateZ(180deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(0%, 0%) rotateZ(180deg);
+  }
+  80% {
+    opacity: 0;
+    transform: translate(20%, 20%) rotateZ(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(20%, 20%) rotateZ(180deg);
+  }
+}
+
+@keyframes pizza4 {
+  0% {
+    opacity: 0;
+    transform: translate(-20%, 20%) rotateZ(-90deg);
+  }
+  30% {
+    opacity: 0;
+    transform: translate(-20%, 20%) rotateZ(-90deg);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(0%, 0%) rotateZ(-90deg);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0%, 0%) rotateZ(-90deg);
+  }
+  90% {
+    opacity: 0;
+    transform: translate(-20%, 20%) rotateZ(-90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-20%, 20%) rotateZ(-90deg);
+  }
+}

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import DetailsCard from '../components/DetailsCard';
 import MainContentWrapper from '../components/layout/MainContentWrapper';
+import Spinner from '../components/Spinner';
 import classes from './DetailsPage.module.css';
 
 interface PizzaDetails {
@@ -46,7 +47,7 @@ const PizzaDetailsPage = () => {
   return (
     <div>
       {error ? <p>{error}</p> : null}
-      {loading ? <p>Loading...</p> : null}
+      {loading ? <Spinner /> : null}
 
       {pizzaDetails && !loading && (
         <MainContentWrapper>

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import Card from '../components/Card';
 import MainContentWrapper from '../components/layout/MainContentWrapper';
+import Spinner from '../components/Spinner';
 
 interface ActionName {
   name: string;
@@ -54,7 +55,7 @@ const ActionsPage = () => {
           ))}
       </MainContentWrapper>
       {error ? <p>{error}</p> : null}
-      {loading ? <p>Loading...</p> : null}
+      {loading ? <Spinner /> : null}
     </>
   );
 };
