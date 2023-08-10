@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
+import Breadcrumbs from '../Breadcrumbs';
 import classes from './Nav.module.css';
 
 const Nav = () => {
@@ -13,7 +14,7 @@ const Nav = () => {
               isActive ? `${classes.link} ${classes.active}` : `${classes.link}`
             }
           >
-            Home
+            Pizza
           </NavLink>
         </li>
         <li>
@@ -37,6 +38,8 @@ const Nav = () => {
           </NavLink>
         </li>
       </ol>
+
+      <Breadcrumbs />
     </nav>
   );
 };

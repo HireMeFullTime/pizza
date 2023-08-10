@@ -1,0 +1,15 @@
+.breadcrumbs {
+  display: flex;
+}
+
+.link {
+  color: #9acd32;
+}
+
+.breadcrumb-separator {
+  margin: 0 0.63rem;
+}
+
+.link.home {
+  color: #fff;
+}

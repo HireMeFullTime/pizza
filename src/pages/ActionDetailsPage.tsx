@@ -24,7 +24,7 @@ const ActionDetailsPage = () => {
           `${process.env.REACT_APP_BACKEND_URL}/action/get/${actionName}`,
         );
         const data = response.data;
-        console.log(data);
+
         if (data) {
           setLoading(false);
           setActionDetails(data);

@@ -1,0 +1,9 @@
+.main-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  height: fit-content;
+  justify-content: center;
+  max-width: 43.75rem;
+  padding: 1.25rem;
+}

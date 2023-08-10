@@ -1,16 +1,18 @@
 .navbar {
-  background: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  background: #000000b3;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  /* border-bottom: 1px solid black; */
 }
 
 .navigation {
   display: flex;
-  font-size: 40px;
-  gap: 20px;
+  font-size: 2.5rem;
+  gap: 1.25rem;
   justify-content: center;
   list-style-type: none;
-  padding: 10px 0;
+  padding: 0.63rem 0;
 }
 
 .link {
@@ -18,11 +20,11 @@
 }
 
 .link.active {
-  color: yellowgreen;
+  color: #9acd32;
 }
 
 @media screen and (max-width: 768px) {
   .navigation {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }

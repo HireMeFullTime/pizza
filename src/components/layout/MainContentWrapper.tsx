@@ -1,23 +1,8 @@
 import { ReactNode } from 'react';
 
+import classes from './MainContentWrapper.module.css';
+
 const MainContentWrapper = ({ children }: { children: ReactNode }) => {
-  return (
-    <div
-      // style={{ display: 'flex', flexDirection: 'column' }}
-      style={{
-        // outline: '1px solid yellow',
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        gap: '20px',
-        padding: '20px',
-        maxWidth: '700px',
-        outline: '1px solid white',
-        height: 'fit-content',
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div className={classes['main-content-wrapper']}>{children}</div>;
 };
 export default MainContentWrapper;
