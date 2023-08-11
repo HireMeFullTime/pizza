@@ -1,5 +1,3 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import DetailsCard from '../components/DetailsCard';
@@ -7,6 +5,7 @@ import Error from '../components/Error';
 import MainContentWrapper from '../components/layout/MainContentWrapper';
 import Spinner from '../components/Spinner';
 import classes from './DetailsPage.module.css';
+import useGet from '../hooks/useGet';
 
 interface ActionDetails {
   name: string;
@@ -16,53 +15,25 @@ interface ActionDetails {
 const ActionDetailsPage = () => {
   const { actionName } = useParams();
 
-  const [actionDetails, setActionDetails] = useState<ActionDetails | null>(
-    null,
+  const { getData, error, loading } = useGet<ActionDetails>(
+    `action/get/${actionName}`,
+    '',
+    true,
   );
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    const fetchActionDetails = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/action/get/${actionName}`,
-        );
-        const data = response.data;
-
-        if (data) {
-          setLoading(false);
-          setActionDetails(data);
-        } else {
-          setLoading(false);
-          setError('Something went wrong. Please, try again later.');
-        }
-      } catch (error: any) {
-        setLoading(false);
-        setError(
-          error.response?.data.message ||
-            'Something went wrong. Please, try again later.',
-        );
-      }
-    };
-    fetchActionDetails();
-  }, []);
-
   return (
     <div>
       {error ? <Error content={error} /> : null}
       {loading ? <Spinner /> : null}
 
-      {!loading && actionDetails && (
+      {!loading && getData && (
         <MainContentWrapper>
           <DetailsCard>
-            <h1 className={classes.title}>{actionDetails?.name}</h1>
+            <h1 className={classes.title}>{getData?.name}</h1>
 
             <h2 className={classes['content-title']}>Pizzas:</h2>
             <ul className={classes['content-list']}>
-              {actionDetails.pizzas.length > 0 ? (
-                actionDetails.pizzas.map((action) => (
+              {getData.pizzas.length > 0 ? (
+                getData.pizzas.map((action) => (
                   <li key={action.name}>🍕{action.name}</li>
                 ))
               ) : (
@@ -72,8 +43,8 @@ const ActionDetailsPage = () => {
 
             <h2 className={classes['content-title']}>Ingredients:</h2>
             <ul className={classes['content-list']}>
-              {actionDetails.ingredients.length > 0 ? (
-                actionDetails.ingredients.map((ingredient) => (
+              {getData.ingredients.length > 0 ? (
+                getData.ingredients.map((ingredient) => (
                   <li key={ingredient.name}>➕{ingredient.name}</li>
                 ))
               ) : (

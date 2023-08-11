@@ -1,53 +1,27 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-
 import Card from '../components/Card';
 import Error from '../components/Error';
 import MainContentWrapper from '../components/layout/MainContentWrapper';
 import Spinner from '../components/Spinner';
+import useGet from '../hooks/useGet';
 
 interface ActionName {
   name: string;
 }
 
 const ActionsPage = () => {
-  const [actionData, setActionData] = useState<ActionName[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  useEffect(() => {
-    const fetchActionName = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/action/get/all`,
-        );
-        const data = response.data.actions;
-
-        if (data) {
-          setLoading(false);
-          setActionData(data);
-        } else {
-          setLoading(false);
-          setError('Something went wrong. Please, try again later.');
-        }
-      } catch (error: any) {
-        setLoading(false);
-        setError(
-          error.response?.data.message ||
-            'Something went wrong. Please, try again later.',
-        );
-      }
-    };
-    fetchActionName();
-  }, []);
+  const { getData, error, loading } = useGet<ActionName[]>(
+    'action',
+    'actions',
+    false,
+  );
 
   return (
     <>
       <MainContentWrapper>
-        {actionData &&
+        {getData &&
           !error &&
           !loading &&
-          actionData.map((action) => (
+          getData.map((action) => (
             <Card
               href={`/actions/${action.name}`}
               key={action.name}
