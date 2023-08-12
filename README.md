@@ -36,7 +36,6 @@ user can:
 - react router
 - axios 
 - css modules
-- cssloaders.github.io
 - eslint
 - prettier
 
