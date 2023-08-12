@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+#### Pizza fullstack app for recruitment.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Links](#links)
+- [Process](#process)
+  - [Built with](#built-with)
+  - [Continued development](#continued-development)
+- [Author](#author)
+-  [Screenshots](#screenshots)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview
+! Important ! Backend part is stored on render. After 15 minutes of inactivity server is going sleep. It can take several minutes to work everything again (for example you can see loader for long time).
+### The challenge
+user can:
+- get information about pizza, ingredients and actions
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Links
 
-### `npm run build`
+- [Demo](https://pizza-katarzynachmielecka.vercel.app/)
+- [Backend part](https://github.com/KatarzynaChmielecka/pizza-backend)
+- [Article with spinner code](https://dev.to/ruppysuppy/create-dynamic-spinners-only-using-css-34dh)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Process
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Built with
+- react
+- typescript
+- react router
+- axios 
+- css modules
+- cssloaders.github.io
+- eslint
+- prettier
 
-### `npm run eject`
+### Continued development
+- Connect with more backend logic (adding/editing/deleting pizza/ingredient/action)
+- Login for admin
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Author
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ - [Katarzyna Chmielecka](https://github.com/KatarzynaChmielecka)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Screenshots
+![image](https://github.com/KatarzynaChmielecka/pizza/assets/56206231/fa164fc3-43ff-4321-b2ec-f75385c7056e)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![image](https://github.com/KatarzynaChmielecka/pizza/assets/56206231/3825c664-e15e-48ec-a244-91a76049335f)
+
+![image](https://github.com/KatarzynaChmielecka/pizza/assets/56206231/815899ef-1fac-4f73-ae9d-3dea8ce63e34)
+
+
+
+
+
+
